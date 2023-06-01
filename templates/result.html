@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>YT Video Summarizer</title>
+		
+		<style>
+			html {
+				height: 100%;
+			}
+			body {
+				position: absolute;
+				top: 0;
+				margin: 0;
+				bottom: 0;
+				right: 0;
+				left: 0;
+				min-height: 100%;
+				background: linear-gradient(to right, rgb(12, 12, 231), rgb(119, 5, 119));
+				background-size: 100%;
+			}
+			#summary {
+				text-align: justify;
+				color: white;
+				margin-top: 10%;
+				margin-left: 10%;
+				margin-right: 10%;
+			}
+			#original-text {
+				text-align: justify;
+				color: white;
+				margin-top: 5%;
+				margin-left: 10%;
+				margin-right: 10%;
+				background-color: rgba(0, 0, 0, 0.1);
+				border-radius: 15px;
+				padding: 20px;
+			}
+			#container {
+				text-align: center;
+				position: relative;
+			}
+			#download {
+				width: 200px;
+				height: 45px;
+				border-radius: 40px;
+				border-width: 0px;
+				background-color: rgba(255, 255, 255, 0.308);
+				margin-left: 10px;
+				color: white;
+			}
+			#bar{
+				border: 5px;
+				height: 1cm;
+				padding-top: 10px;
+				font-size: 0.5cm;
+				padding-left: 15px;
+				background-image: -webkit-linear-gradient(40deg, rgb(0, 0, 0), rgb(68, 67, 67));
+			}
+			h1 {
+  				background: -webkit-linear-gradient(#3f3f3f, #ffffff);
+  				-webkit-background-clip:text;
+  				-webkit-text-fill-color: transparent;
+				font-weight: bold;
+			}
+			#v_download
+			{
+
+				width: 200px;
+				height: 45px;
+				border-radius: 40px;
+				border-width: 0px;
+				background-color: rgba(255, 255, 255, 0.308);
+				margin-left: 44%;
+				color: white;
+			}
+			.search-bar {
+				margin: auto;
+				display: block;
+				margin-top: 2%;
+				width: 400px;
+				height: 45px;
+				border-radius: 40px;
+				border-width: 0px;
+				text-align: center;
+			}
+		</style>
+
+
+	</head>
+
+	<body>
+
+
+		<div id="bar">
+			<span style="color: #ff0000; font-weight: bold">YT
+			</span>
+			<span style="color: hsl(60, 6%, 59%);"> Video Summarizer</span>
+		</div>
+		
+
+		<h1 style="margin-left: 45%;">Summary</h2>
+		<h2 id="summary">{{result[0]}}</h2>
+		
+		<hr
+			style="
+				color: white;
+				margin-left: 20%;
+				margin-right: 20%;
+				margin-top: 5%;
+			"
+		/>
+
+		
+		<form action="http://localhost:8081/" method="POST">
+			<input type="submit" id="v_download"  value="Download Video" />
+		</form>
+
+
+		<h1 style="margin-left: 45%;">Original-Text</h2>
+
+		<h2 id="original-text">{{result[1]}}</h2>
+	</body>
+</html>

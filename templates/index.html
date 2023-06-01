@@ -1,0 +1,185 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>YT Video Summarizer</title>
+		
+
+		<style>
+			html {
+				height: 100%;
+			}
+			body {
+				position: absolute;
+				margin: 0;
+				top: 0;
+				bottom: 0;
+				right: 0;
+				left: 0;
+				min-height: 100%;
+				background-image: -webkit-linear-gradient(40deg, rgb(41, 41, 170), rgb(161, 63, 161));
+			}
+
+			.search-bar {
+				margin: auto;
+				margin-top: 2%;
+				margin-left: 80px;
+				width: 300px;
+				height: 40px;
+				border-radius: 40px;
+				border-width: 0px;
+				text-align: center;
+			}
+			.search-bar-2 {
+				margin: auto;
+				display: block;
+				margin-top: 2%;
+				width: 250px;
+				height: 40px;
+				border-radius: 40px;
+				border-width: 0px;
+				text-align: center;
+			}
+			#top_n{
+				margin: auto;
+				margin-top: 2%;
+				width: 150px;
+				height: 40px;
+				border-radius: 40px;
+				border-width: 0px;
+				text-align: center;
+			}
+			#searchButton {
+				margin: auto;
+				display: block;
+				margin-top: 2%;
+				width: 100px;
+				height: 40px;
+				border-radius: 40px;
+				border-width: 0px;
+				background-image: -webkit-linear-gradient(40deg, blue, purple);
+				color: white;
+			}
+			#container {
+				text-align: center;
+				margin-top: 10%;
+			}
+
+			#show {
+				width: 180px;
+				height: 40px;
+				border-radius: 40px;
+				border-width: 0px;
+				background-color: rgba(255, 255, 255, 0.308);
+				margin-right: 10px;
+				color: white;
+			}
+			#download {
+				width: 180px;
+				height: 40px;
+				border-radius: 40px;
+				border-width: 0px;
+				background-color: rgba(255, 255, 255, 0.308);
+				margin-left: 10px;
+				color: white;
+			}
+			#v_download
+			{
+				width: 150px;
+				height: 40px;
+				border-radius: 40px;
+				border-width: 0px;
+				background-color: rgba(255, 255, 255, 0.308);
+				margin-top: 20px;
+				margin-left: 210px;
+				color: white;
+				
+				background-image: -webkit-linear-gradient(40deg, rgb(41, 41, 170), rgb(161, 63, 161));
+			}
+			#bar{
+				border: 5px;
+				height: 1cm;
+				padding-top: 10px;
+				font-size: 0.5cm;
+				padding-left: 15px;
+				background-image: -webkit-linear-gradient(40deg, rgb(0, 0, 0), rgb(68, 67, 67));
+			}
+			#img_1{
+				height: 6cm;
+				width: 8cm;
+				border-radius: 200px;
+				
+			}
+			#image{
+				margin-top: 170px;
+				margin-left: 140px;
+				float: left;
+			}
+			#myVideo {
+				z-index: -1;
+				position: fixed;
+				right: 0;
+				bottom: 0;
+				min-width: 100%; 
+				min-height: 100%;
+			}
+
+		</style>
+	</head>
+
+	<body>
+		<video autoplay muted loop id="myVideo">
+			<source src="../static/bg.mp4" type="video/mp4">
+		</video>
+
+
+		<div id="bar">
+			<span style="color: #ff0000; font-weight: bold">YT</span>
+			<span style="color: hsl(60, 6%, 59%);"> Video Summarizer</span>
+		</div>
+		
+		<div id="image">
+			<img id="img_1" src="../static/c.jpg">
+		</div>
+
+		<div style="float: left; margin-top: 140px; margin-left: 180px;">
+			<h1 style="	text-align: center;
+						margin-top: 0;
+						font-weight: bolder;
+						color: white; ">
+				Summarize your video!
+			</h1>
+
+			<h1 style="text-align: center; color: white;">
+				Paste Youtube link and top_n value here.
+			</h1>
+		
+			<form action="http://localhost:8081/result" method="POST">
+				<input type="text" name="link" placeholder=" For Summary and Text" id="link" class="search-bar"/>
+
+				<input type="text" name="top_n" placeholder="no of line in Summary"  id="top_n" class="search-bar"/>
+
+				<input id="searchButton" type="submit" value="GO" />
+			</form>
+			
+
+			
+			<form action="http://localhost:8081/" method="POST">
+				<input type="text" name="vd" placeholder="For downloading video" id="vd" class="search-bar-2" />
+				<input type="submit" id="v_download"  value="Download Video" />
+			</form>
+
+
+			<!--<div id="container">
+				
+				<button type="button" id="show">Show Summary</button>
+				<button type="button" id="download">Download File</button>
+				<button type="button" id="v_download">Download Video</button>
+			</div>-->
+
+
+
+
+		</div>
+	</body>
+</html>
